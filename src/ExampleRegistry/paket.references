@@ -1,4 +1,5 @@
 Be.Vlaanderen.Basisregisters.AggregateSource
+Be.Vlaanderen.Basisregisters.EventHandling
 
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles
