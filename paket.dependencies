@@ -30,6 +30,7 @@ nuget Microsoft.Extensions.Configuration.Json 2.2.0
 
 // BASE REGISTRIES STUFF
 nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.1
+nuget Be.Vlaanderen.Basisregisters.Testing.Infrastructure.Events ~> 1.0 content: true, copy_content_to_output_dir: always, copy_local: true
 
 // DOCS STUFF
 nuget Structurizr.Core 0.9.0

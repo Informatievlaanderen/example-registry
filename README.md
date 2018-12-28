@@ -32,6 +32,14 @@ To use the private MyGet feed, setup 2 environment variables:
 
 TODO: More to come :)
 
+### Generating documentation
+
+We use Structurizr to generate our documentation and populate our architecture decisions. All of this can be found in the [Structurizr](https://github.com/Informatievlaanderen/example-registry/tree/master/docs/ExampleRegistry.Structurizr) console application.
+
+To run it, make sure you have an `appsettings.json` with a structurizr.com `WorkspaceId`, `ApiKey` and `ApiSecret`. If you have moved your [adr's](https://github.com/Informatievlaanderen/example-registry/tree/master/docs/adr) to another location, don't forget to update `AdrPath`.
+
+This is how the generated documentation looks: https://structurizr.com/share/37794
+
 ### Possible build targets
 
 Our `build.sh` script knows a few tricks. By default it runs with the `Test`.
@@ -134,3 +142,4 @@ The new version 1.2 of the European Union Public Licence (EUPL) is published in 
 ### Flemish Government Generic Libraries
 
 * [Be.Vlaanderen.Basisregisters.Build.Pipeline](https://github.com/Informatievlaanderen/build-pipeline/blob/master/LICENSE) - _Contains generic files for all Basisregisters Vlaanderen pipelines._ - [MIT](https://choosealicense.com/licenses/mit/)
+* [Be.Vlaanderen.Basisregisters.Testing.Infrastructure.Events](https://github.com/Informatievlaanderen/infrastructure-tests/blob/master/LICENSE)  - _Infrastructure unit-tests to validate assemblies._ - [MIT](https://choosealicense.com/licenses/mit/)]

@@ -21,6 +21,7 @@ appsettings.*.json
 *.njsproj
 *.trx
 
+TestResults/
 node_modules/
 bower_components/
 debug.log
