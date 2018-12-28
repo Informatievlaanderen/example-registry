@@ -1,16 +1,19 @@
 RESTRICTION: || (== net472) (== netcoreapp2.2) (== netstandard2.0)
 NUGET
   remote: https://api.nuget.org/v3/index.json
-    Be.Vlaanderen.Basisregisters.AggregateSource (1.0) - copy_local: true, copy_content_to_output_dir: always, content: true
+    Be.Vlaanderen.Basisregisters.AggregateSource (1.0)
       Be.Vlaanderen.Basisregisters.Utilities.HashCodeCalculator (>= 1.0 < 2.0)
       Be.Vlaanderen.Basisregisters.Utilities.HexByteConvertor (>= 1.0 < 2.0)
       Be.Vlaanderen.Basisregisters.Utilities.ToStringBuilder (>= 1.0 < 2.0)
       Newtonsoft.Json (>= 12.0.1)
       NodaTime (>= 2.4.2)
+    Be.Vlaanderen.Basisregisters.AggregateSource.ExplicitRouting (1.0)
+      Be.Vlaanderen.Basisregisters.AggregateSource (1.0)
     Be.Vlaanderen.Basisregisters.Build.Pipeline (1.1.5)
-    Be.Vlaanderen.Basisregisters.Converters.TrimString (1.0.1) - copy_local: true, copy_content_to_output_dir: always, content: true
+    Be.Vlaanderen.Basisregisters.CommandHandling (1.0)
+    Be.Vlaanderen.Basisregisters.Converters.TrimString (1.0.1)
       Newtonsoft.Json (>= 12.0.1)
-    Be.Vlaanderen.Basisregisters.EventHandling (1.0.1) - copy_local: true, copy_content_to_output_dir: always, content: true
+    Be.Vlaanderen.Basisregisters.EventHandling (1.0.1)
       Be.Vlaanderen.Basisregisters.Converters.TrimString (>= 1.0 < 2.0)
       Newtonsoft.Json (>= 12.0.1)
       NodaTime.Serialization.JsonNet (>= 2.0)
@@ -20,9 +23,9 @@ NUGET
       FluentAssertions (>= 5.5.3)
       Newtonsoft.Json (>= 12.0.1)
       xunit (>= 2.4.1)
-    Be.Vlaanderen.Basisregisters.Utilities.HashCodeCalculator (1.0.2) - copy_local: true, copy_content_to_output_dir: always, content: true
-    Be.Vlaanderen.Basisregisters.Utilities.HexByteConvertor (1.0.1) - copy_local: true, copy_content_to_output_dir: always, content: true
-    Be.Vlaanderen.Basisregisters.Utilities.ToStringBuilder (1.0.1) - copy_local: true, copy_content_to_output_dir: always, content: true
+    Be.Vlaanderen.Basisregisters.Utilities.HashCodeCalculator (1.0.2)
+    Be.Vlaanderen.Basisregisters.Utilities.HexByteConvertor (1.0.1)
+    Be.Vlaanderen.Basisregisters.Utilities.ToStringBuilder (1.0.1)
     FAKE (4.64.13)
     FluentAssertions (5.5.3) - copy_local: true, copy_content_to_output_dir: always, content: true
       System.Configuration.ConfigurationManager (>= 4.4) - restriction: || (&& (== net472) (< net45)) (&& (== net472) (>= netcoreapp2.0)) (== netcoreapp2.2) (== netstandard2.0)
@@ -106,8 +109,8 @@ NUGET
     NETStandard.Library (2.0.3)
       Microsoft.NETCore.Platforms (>= 1.1)
     Newtonsoft.Json (12.0.1) - copy_local: true, copy_content_to_output_dir: always, content: true
-    NodaTime (2.4.2) - copy_local: true, copy_content_to_output_dir: always, content: true
-    NodaTime.Serialization.JsonNet (2.0) - copy_local: true, copy_content_to_output_dir: always, content: true
+    NodaTime (2.4.2)
+    NodaTime.Serialization.JsonNet (2.0)
       NETStandard.Library (>= 1.6.1) - restriction: || (&& (== net472) (< net45)) (== netcoreapp2.2) (== netstandard2.0)
       Newtonsoft.Json (>= 9.0.1)
       NodaTime (>= 2.0)
@@ -553,7 +556,7 @@ NUGET
       System.Threading (>= 4.3) - restriction: || (&& (== net472) (< net46)) (== netcoreapp2.2) (== netstandard2.0)
       System.Threading.Tasks (>= 4.3) - restriction: || (&& (== net472) (< net46)) (== netcoreapp2.2) (== netstandard2.0)
     System.Security.Cryptography.ProtectedData (4.5) - copy_local: true, copy_content_to_output_dir: always, content: true, restriction: || (&& (== net472) (< net45)) (&& (== net472) (>= netcoreapp2.0)) (== netcoreapp2.2) (== netstandard2.0)
-      System.Memory (>= 4.5) - restriction: || (&& (== net472) (== netcoreapp2.2)) (&& (== net472) (< net46)) (&& (== netcoreapp2.2) (< netcoreapp2.1)) (== netstandard2.0)
+      System.Memory (>= 4.5) - restriction: || (&& (== net472) (< net46)) (&& (== netcoreapp2.2) (< netcoreapp2.1)) (== netstandard2.0)
     System.Security.Cryptography.X509Certificates (4.3.2)
       Microsoft.NETCore.Platforms (>= 1.1) - restriction: || (&& (== net472) (>= dnxcore50)) (&& (== net472) (< net46)) (== netcoreapp2.2) (== netstandard2.0)
       runtime.native.System (>= 4.3) - restriction: || (&& (== net472) (< net46)) (== netcoreapp2.2) (== netstandard2.0)
