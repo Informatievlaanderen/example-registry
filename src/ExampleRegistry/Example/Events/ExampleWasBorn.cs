@@ -5,7 +5,7 @@ namespace ExampleRegistry.Example.Events
     using Be.Vlaanderen.Basisregisters.EventHandling;
 
     [EventName("ExampleWasBorn")]
-    [EventDescription("The example got born!")]
+    [EventDescription("The example was born!")]
     public class ExampleWasBorn
     {
         public Guid ExampleId { get; }

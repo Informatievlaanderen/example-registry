@@ -22,8 +22,6 @@ nuget Microsoft.NETCore.DotNetHostPolicy 2.2.0
 nuget NETStandard.Library 2.0.3
 
 // PRODUCTION STUFF
-//nuget Microsoft.AspNetCore 2.2.0
-
 nuget Microsoft.Extensions.Configuration 2.2.0
 nuget Microsoft.Extensions.Configuration.FileExtensions 2.2.0
 nuget Microsoft.Extensions.Configuration.Json 2.2.0
@@ -41,6 +39,8 @@ nuget Be.Vlaanderen.Basisregisters.AggregateSource.SqlStreamStore.Autofac ~> 1.0
 nuget Be.Vlaanderen.Basisregisters.AggregateSource.Testing ~> 1.0
 nuget Be.Vlaanderen.Basisregisters.AggregateSource.Testing.SqlStreamStore.Autofac ~> 1.0
 nuget Be.Vlaanderen.Basisregisters.AggregateSource.Testing.Xunit ~> 1.0
+
+nuget Be.Vlaanderen.Basisregisters.Api ~> 1.0
 
 nuget Be.Vlaanderen.Basisregisters.CommandHandling ~> 1.0
 nuget Be.Vlaanderen.Basisregisters.CommandHandling.SqlStreamStore.Autofac ~> 1.0
