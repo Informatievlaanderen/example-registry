@@ -152,7 +152,7 @@ NUGET
       Microsoft.Extensions.FileProviders.Embedded (>= 2.2)
       Newtonsoft.Json (>= 12.0.1)
       Swashbuckle.AspNetCore (>= 4.0.1)
-    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.1.5)
+    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.1.6)
     Be.Vlaanderen.Basisregisters.CommandHandling (1.0)
     Be.Vlaanderen.Basisregisters.CommandHandling.SqlStreamStore (1.0)
       Be.Vlaanderen.Basisregisters.AggregateSource (1.0)

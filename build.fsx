@@ -8,11 +8,10 @@ let assemblyVersionNumber = (sprintf "2.0.0.%s")
 let nugetVersionNumber = (sprintf "2.0.%s")
 
 let build = buildSolution assemblyVersionNumber
-let publish = publishSolution assemblyVersionNumber
+let publish = publish assemblyVersionNumber
 let pack = packSolution nugetVersionNumber
 let push = push dockerRepository
 let containerize = containerize dockerRepository
-
 
 Target "Clean" (fun _ ->
   CleanDir buildDir
@@ -24,10 +23,14 @@ Target "Build_Solution" (fun _ -> build "ExampleRegistry")
 
 Target "Test_Solution" (fun _ ->
   [
-    "test" @@ "ExampleRegistry.Tests"
-  ] |> List.iter testWithDotNet)
+    "ExampleRegistry.Tests"
+  ] |> List.iter test)
 
-Target "Publish_Solution" (fun _ -> publish "ExampleRegistry")
+Target "Publish_Solution" (fun _ ->
+  [
+    "ExampleRegistry"
+    "ExampleRegistry.Api"
+  ] |> List.iter publish)
 
 Target "Pack_Solution" (fun _ -> pack "ExampleRegistry")
 
