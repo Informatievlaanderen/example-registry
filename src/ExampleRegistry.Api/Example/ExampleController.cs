@@ -62,7 +62,7 @@ namespace ExampleRegistry.Api.Example
         /// <returns></returns>
         [HttpPost]
         [ProducesResponseType(typeof(void), StatusCodes.Status202Accepted)]
-        [ProducesResponseType(typeof(BadRequestObjectResult), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(BasicApiProblem), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(BasicApiProblem), StatusCodes.Status500InternalServerError)]
         [SwaggerRequestExample(typeof(CommandRequest), typeof(CommandRequestExample))]
         [SwaggerResponseExample(StatusCodes.Status202Accepted, typeof(CommandResponseExamples), jsonConverter: typeof(StringEnumConverter))]

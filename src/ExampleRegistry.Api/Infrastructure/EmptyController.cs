@@ -2,6 +2,7 @@ namespace ExampleRegistry.Api.Infrastructure
 {
     using System.Reflection;
     using System.Threading;
+    using Be.Vlaanderen.Basisregisters.Api;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Net.Http.Headers;

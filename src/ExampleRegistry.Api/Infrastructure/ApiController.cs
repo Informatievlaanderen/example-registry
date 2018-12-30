@@ -2,12 +2,16 @@ namespace ExampleRegistry.Api.Infrastructure
 {
     using System.Collections.Generic;
     using System.Security.Claims;
+    using Be.Vlaanderen.Basisregisters.Api;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Middleware;
     using Be.Vlaanderen.Basisregisters.CommandHandling;
-    using Microsoft.AspNetCore.Mvc;
 
-    public abstract class ApiController : ControllerBase
+    public abstract class ApiBusController : ApiController
     {
+        protected ICommandHandlerResolver Bus { get; }
+
+        protected ApiBusController(ICommandHandlerResolver bus) => Bus = bus;
+
         protected IDictionary<string, object> GetMetadata()
         {
             var ip = User.FindFirst(AddRemoteIpAddressMiddleware.UrnBasisregistersVlaanderenIp)?.Value;
@@ -25,12 +29,5 @@ namespace ExampleRegistry.Api.Infrastructure
                 { "CorrelationId", correlationId }
             };
         }
-    }
-
-    public abstract class ApiBusController : ApiController
-    {
-        protected ICommandHandlerResolver Bus { get; }
-
-        protected ApiBusController(ICommandHandlerResolver bus) => Bus = bus;
     }
 }

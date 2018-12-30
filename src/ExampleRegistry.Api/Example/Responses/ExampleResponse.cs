@@ -5,6 +5,7 @@ namespace ExampleRegistry.Api.Example.Responses
     using Microsoft.AspNetCore.Http;
     using Swashbuckle.AspNetCore.Filters;
 
+    [Serializable]
     public class ExampleResponse
     {
         /// <summary>Id van het voorbeeld.</summary>
