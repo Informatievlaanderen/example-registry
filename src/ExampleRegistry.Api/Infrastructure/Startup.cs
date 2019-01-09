@@ -79,12 +79,12 @@ namespace ExampleRegistry.Api.Infrastructure
                     appLifetime,
                     loggerFactory,
                     apiVersionProvider,
-                    groupName => $"Basisregisters Vlaanderen - ExampleRegistry API {groupName}")
+                    groupName => $"Basisregisters Vlaanderen - Example Registry API {groupName}")
 
                 .UseMiddleware<AddNoCacheHeadersMiddleware>();
         }
 
         private static string GetApiLeadingText(ApiVersionDescription description)
-            => $"Momenteel leest u de documentatie voor versie {description.ApiVersion} van de Basisregisters Vlaanderen ExampleRegistry API{string.Format(description.IsDeprecated ? ", **deze API versie is niet meer ondersteund * *." : ".")}";
+            => $"Momenteel leest u de documentatie voor versie {description.ApiVersion} van de Basisregisters Vlaanderen Example Registry API{string.Format(description.IsDeprecated ? ", **deze API versie is niet meer ondersteund * *." : ".")}";
     }
 }
