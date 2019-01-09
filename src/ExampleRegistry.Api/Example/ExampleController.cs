@@ -19,10 +19,8 @@ namespace ExampleRegistry.Api.Example
     [AdvertiseApiVersions("1.0")]
     [ApiRoute("example")]
     [ApiExplorerSettings(GroupName = "Example")]
-    public class ExampleController : ApiBusController
+    public class ExampleController : ExampleRegistryController
     {
-        public ExampleController(ICommandHandlerResolver bus) : base(bus) { }
-
         /// <summary>
         /// Vraag een voorbeeld op.
         /// </summary>
@@ -53,6 +51,7 @@ namespace ExampleRegistry.Api.Example
         /// <summary>
         /// Voer een generiek commando uit.
         /// </summary>
+        /// <param name="bus"></param>
         /// <param name="commandId">Optionele unieke id voor het verzoek.</param>
         /// <param name="command"></param>
         /// <param name="cancellationToken"></param>
@@ -69,6 +68,7 @@ namespace ExampleRegistry.Api.Example
         [SwaggerResponseExample(StatusCodes.Status400BadRequest, typeof(BadRequestResponseExamples), jsonConverter: typeof(StringEnumConverter))]
         [SwaggerResponseExample(StatusCodes.Status500InternalServerError, typeof(InternalServerErrorResponseExamples), jsonConverter: typeof(StringEnumConverter))]
         public async Task<IActionResult> Post(
+            [FromServices] ICommandHandlerResolver bus,
             [FromCommandId] Guid commandId,
             [FromBody] CommandRequest command,
             CancellationToken cancellationToken = default)
@@ -79,7 +79,7 @@ namespace ExampleRegistry.Api.Example
             // Normally this would be Bus.Dispatch(...) but because of the example the command to dispatch is of type 'dynamic' which
             return Accepted(
                 await CommandHandlerResolverExtensions.Dispatch(
-                    Bus,
+                    bus,
                     commandId,
                     CommandRequestMapping.Map(command),
                     GetMetadata(),

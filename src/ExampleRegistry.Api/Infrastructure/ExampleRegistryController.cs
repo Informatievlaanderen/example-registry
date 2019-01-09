@@ -4,14 +4,9 @@ namespace ExampleRegistry.Api.Infrastructure
     using System.Security.Claims;
     using Be.Vlaanderen.Basisregisters.Api;
     using Be.Vlaanderen.Basisregisters.AspNetCore.Mvc.Middleware;
-    using Be.Vlaanderen.Basisregisters.CommandHandling;
 
-    public abstract class ApiBusController : ApiController
+    public abstract class ExampleRegistryController : ApiController
     {
-        protected ICommandHandlerResolver Bus { get; }
-
-        protected ApiBusController(ICommandHandlerResolver bus) => Bus = bus;
-
         protected IDictionary<string, object> GetMetadata()
         {
             var ip = User.FindFirst(AddRemoteIpAddressMiddleware.UrnBasisregistersVlaanderenIp)?.Value;
