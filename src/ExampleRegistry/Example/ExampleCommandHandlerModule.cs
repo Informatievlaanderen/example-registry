@@ -5,6 +5,18 @@ namespace ExampleRegistry.Example
     using Be.Vlaanderen.Basisregisters.CommandHandling;
     using Commands;
 
+    public sealed class SimpleExampleCommandHandlerModule : CommandHandlerModule
+    {
+        public SimpleExampleCommandHandlerModule()
+        {
+            For<DoSimpleExample>()
+                .Handle(message =>
+                {
+                    Console.WriteLine($"A simple example arrived, saying {message.Command.Name.Name} in {message.Command.Name.Language}!");
+                });
+        }
+    }
+
     public sealed class ExampleCommandHandlerModule : CommandHandlerModule
     {
         public ExampleCommandHandlerModule(
