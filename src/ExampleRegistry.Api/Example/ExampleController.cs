@@ -76,7 +76,7 @@ namespace ExampleRegistry.Api.Example
             if (!ModelState.IsValid)
                 return BadRequest(ModelState); // TODO: Check what this returns in the response
 
-            // Normally this would be Bus.Dispatch(...) but because of the example the command to dispatch is of type 'dynamic' which
+            // Normally this would be bus.Dispatch(...) but because of the example the command to dispatch is of type 'dynamic' which an extension method cannot handle.
             return Accepted(
                 await CommandHandlerResolverExtensions.Dispatch(
                     bus,
