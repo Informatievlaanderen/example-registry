@@ -79,7 +79,7 @@ namespace ExampleRegistry.Api.Infrastructure
                     appLifetime,
                     loggerFactory,
                     apiVersionProvider,
-                    groupName => $"Basisregisters.Vlaanderen - ExampleRegistry API {groupName}")
+                    groupName => $"Basisregisters Vlaanderen - ExampleRegistry API {groupName}")
 
                 .UseMiddleware<AddNoCacheHeadersMiddleware>();
         }
