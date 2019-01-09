@@ -8,31 +8,29 @@ let assemblyVersionNumber = (sprintf "2.0.0.%s")
 let nugetVersionNumber = (sprintf "2.0.%s")
 
 let build = buildSolution assemblyVersionNumber
+let test = testSolution
 let publish = publish assemblyVersionNumber
-let pack = packSolution nugetVersionNumber
+let pack = pack nugetVersionNumber
 let push = push dockerRepository
 let containerize = containerize dockerRepository
 
-Target "Clean" (fun _ ->
-  CleanDir buildDir
-)
-
 // Solution -----------------------------------------------------------------------
+
+Target "Restore_Solution" (fun _ -> restore "ExampleRegistry")
 
 Target "Build_Solution" (fun _ -> build "ExampleRegistry")
 
-Target "Test_Solution" (fun _ ->
-  [
-    "ExampleRegistry.Tests"
-  ] |> List.iter test)
+Target "Test_Solution" (fun _ -> test "ExampleRegistry")
 
 Target "Publish_Solution" (fun _ ->
   [
-    "ExampleRegistry"
     "ExampleRegistry.Api"
   ] |> List.iter publish)
 
-Target "Pack_Solution" (fun _ -> pack "ExampleRegistry")
+Target "Pack_Solution" (fun _ ->
+  [
+    "ExampleRegistry.Api"
+  ] |> List.iter pack)
 
 Target "Containerize_Api" (fun _ -> containerize "ExampleRegistry.Api" "api")
 Target "PushContainer_Api" (fun _ -> push "api")
@@ -91,7 +89,7 @@ Target "Push" DoNothing
 "NpmInstall"         ==> "Build"
 "DotNetCli"          ==> "Build"
 "Clean"              ==> "Build"
-"Restore"            ==> "Build"
+"Restore_Solution"   ==> "Build"
 "Build_Solution"     ==> "Build"
 
 "Build"              ==> "Test"
@@ -103,7 +101,7 @@ Target "Push" DoNothing
 "Publish"            ==> "Pack"
 "Pack_Solution"      ==> "Pack"
 
-"Publish"            ==> "Containerize"
+"Pack"               ==> "Containerize"
 "Containerize_Api"   ==> "Containerize"
 // Possibly add more projects to containerize here
 
