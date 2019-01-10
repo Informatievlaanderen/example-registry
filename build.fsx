@@ -3,47 +3,6 @@
 open Fake
 open ``Build-generic``
 
-let dockerRepository = "example-registry"
-let assemblyVersionNumber = (sprintf "2.0.0.%s")
-let nugetVersionNumber = (sprintf "2.0.%s")
-
-let build = buildSolution assemblyVersionNumber
-let test = testSolution
-let publish = publish assemblyVersionNumber
-let pack = pack nugetVersionNumber
-let push = push dockerRepository
-let containerize = containerize dockerRepository
-
-// Solution -----------------------------------------------------------------------
-
-Target "Restore_Solution" (fun _ -> restore "ExampleRegistry")
-
-Target "Build_Solution" (fun _ -> build "ExampleRegistry")
-
-Target "Test_Solution" (fun _ -> test "ExampleRegistry")
-
-Target "Publish_Solution" (fun _ ->
-  [
-    "ExampleRegistry.Api"
-  ] |> List.iter publish)
-
-Target "Pack_Solution" (fun _ ->
-  [
-    "ExampleRegistry.Api"
-  ] |> List.iter pack)
-
-Target "Containerize_Api" (fun _ -> containerize "ExampleRegistry.Api" "api")
-Target "PushContainer_Api" (fun _ -> push "api")
-
-// --------------------------------------------------------------------------------
-
-Target "Build" DoNothing
-Target "Test" DoNothing
-Target "Publish" DoNothing
-Target "Pack" DoNothing
-Target "Containerize" DoNothing
-Target "Push" DoNothing
-
 // The buildserver passes in `BITBUCKET_BUILD_NUMBER` as an integer to version the results
 // and `BUILD_DOCKER_REGISTRY` to point to a Docker registry to push the resulting Docker images.
 
@@ -85,6 +44,47 @@ Target "Push" DoNothing
 
 // Push
 // Executes `docker push` to push the built images to the registry.
+
+let dockerRepository = "example-registry"
+let assemblyVersionNumber = (sprintf "2.0.0.%s")
+let nugetVersionNumber = (sprintf "2.0.%s")
+
+let build = buildSolution assemblyVersionNumber
+let test = testSolution
+let publish = publish assemblyVersionNumber
+let pack = pack nugetVersionNumber
+let push = push dockerRepository
+let containerize = containerize dockerRepository
+
+// Solution -----------------------------------------------------------------------
+
+Target "Restore_Solution" (fun _ -> restore "ExampleRegistry")
+
+Target "Build_Solution" (fun _ -> build "ExampleRegistry")
+
+Target "Test_Solution" (fun _ -> test "ExampleRegistry")
+
+Target "Publish_Solution" (fun _ ->
+  [
+    "ExampleRegistry.Api"
+  ] |> List.iter publish)
+
+Target "Pack_Solution" (fun _ ->
+  [
+    "ExampleRegistry.Api"
+  ] |> List.iter pack)
+
+Target "Containerize_Api" (fun _ -> containerize "ExampleRegistry.Api" "api")
+Target "PushContainer_Api" (fun _ -> push "api")
+
+// --------------------------------------------------------------------------------
+
+Target "Build" DoNothing
+Target "Test" DoNothing
+Target "Publish" DoNothing
+Target "Pack" DoNothing
+Target "Containerize" DoNothing
+Target "Push" DoNothing
 
 "NpmInstall"         ==> "Build"
 "DotNetCli"          ==> "Build"
