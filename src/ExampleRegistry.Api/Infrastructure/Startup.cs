@@ -76,7 +76,9 @@ namespace ExampleRegistry.Api.Infrastructure
                     appLifetime,
                     loggerFactory,
                     apiVersionProvider,
-                    groupName => $"Basisregisters Vlaanderen - Example Registry API {groupName}")
+                    groupName => $"Basisregisters Vlaanderen - Example Registry API {groupName}",
+                    poweredByName: "Vlaamse overheid - Basisregisters Vlaanderen",
+                    serverName: "Vlaamse overheid")
 
                 .UseMiddleware<AddNoCacheHeadersMiddleware>();
         }
