@@ -68,19 +68,28 @@ namespace ExampleRegistry.Api.Infrastructure
         {
             // StartupHelpers.EnsureSqlStreamStoreSchema<Startup>(streamStore, loggerFactory);
 
-            app
-                .UseDefaultForApi(
-                    _applicationContainer,
-                    serviceProvider,
-                    env,
-                    appLifetime,
-                    loggerFactory,
-                    apiVersionProvider,
-                    groupName => $"Basisregisters Vlaanderen - Example Registry API {groupName}",
-                    poweredByName: "Vlaamse overheid - Basisregisters Vlaanderen",
-                    serverName: "Vlaamse overheid")
-
-                .UseMiddleware<AddNoCacheHeadersMiddleware>();
+            app.UseDefaultForApi(new StartupOptions
+            {
+                ApplicationContainer = _applicationContainer,
+                ServiceProvider = serviceProvider,
+                HostingEnvironment = env,
+                ApplicationLifetime = appLifetime,
+                LoggerFactory = loggerFactory,
+                Api =
+                {
+                    VersionProvider = apiVersionProvider,
+                    Info = groupName => $"Basisregisters Vlaanderen - Example Registry API {groupName}"
+                },
+                Server =
+                {
+                    PoweredByName = "Vlaamse overheid - Basisregisters Vlaanderen",
+                    ServerName = "Vlaamse overheid"
+                },
+                MiddlewareHooks =
+                {
+                    AfterMiddleware = x => x.UseMiddleware<AddNoCacheHeadersMiddleware>(),
+                }
+            });
         }
 
         private static string GetApiLeadingText(ApiVersionDescription description)

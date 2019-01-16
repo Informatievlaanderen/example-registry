@@ -25,7 +25,8 @@ namespace ExampleRegistry.Infrastructure.Modules
             containerBuilder
                 .RegisterEventstreamModule(_configuration);
 
-            CommandHandlerModules.Register(containerBuilder);
+            CommandHandlerModules
+                .Register(containerBuilder);
 
             containerBuilder
                 .RegisterType<CommandHandlerResolver>()
