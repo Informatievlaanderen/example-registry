@@ -2,8 +2,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
-[assembly: AssemblyProduct("Vlaamse basisregisters")]
-[assembly: AssemblyDescription("AddressRegistry infrastructuur")]
+[assembly: AssemblyProduct("Basisregisters Vlaanderen")]
+[assembly: AssemblyDescription("ExampleRegistry Infrastructure")]
 [assembly: AssemblyVersion("2.0.0.0")]
 [assembly: AssemblyFileVersion("2.0.0.0")]
 [assembly: AssemblyCopyright("Copyright (c) Vlaamse overheid")]
