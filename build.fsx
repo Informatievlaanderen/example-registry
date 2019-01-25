@@ -46,8 +46,8 @@ open ``Build-generic``
 // Executes `docker push` to push the built images to the registry.
 
 let dockerRepository = "example-registry"
-let assemblyVersionNumber = (sprintf "2.0.0.%s")
-let nugetVersionNumber = (sprintf "2.0.%s")
+let assemblyVersionNumber = (sprintf "2.%s")
+let nugetVersionNumber = (sprintf "%s")
 
 let build = buildSolution assemblyVersionNumber
 let test = testSolution
